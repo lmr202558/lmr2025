@@ -78,18 +78,27 @@ DeepSeek Harness 的 token 效率插件 `dsh-ops`。
 
 | 项 | 值 |
 | --- | --- |
-| 版本 | **0.4.4** |
+| 版本 | **0.5.4** |
 | 安装位置 | `~\.dsh\profiles\desktop` |
-| 宿主版本 | DSH 0.2.1-rc.5 |
+| 宿主版本 | DSH 0.2.2-rc.1 |
+| 生效形态 | 单个 `include:dsh-ops` 行（0.5.x 已合并旧的多行） |
 
-> **版本注意**：dsh-ops 0.5.x 要求 `dsh >=0.2.2-rc.1`，0.4.x 支持 `0.2.0-rc.2 ~ 0.2.1`。
-> 在本机 DSH 升级到 0.2.2 之前，必须锁在 0.4.4。
+> **版本约束（踩过的坑）**：dsh-ops 与宿主版本是硬绑定的。
+>
+> | dsh-ops | 要求 DSH |
+> | --- | --- |
+> | 0.5.x | `>=0.2.2-rc.1 <0.2.3-0` |
+> | 0.4.x | `>=0.2.0-rc.2 <0.2.2-0` |
+>
+> 桌面端会在重启时自动升级自身版本。**升级 DSH 后 dsh-ops 会被版本门禁禁用**
+> （`incompatible-version`），表现为工具全部消失但配置仍在——按上表换成对应大版本即可，
+> 不需要卸载重来。
 
 安装：
 
 ```powershell
 & "D:\Users\lby\AppData\Local\Programs\DeepSeek Harness\resources\runtime\cli\bin\dsh.cmd" `
-  plugin --profile desktop add dsh-ops@0.4.4
+  plugin --profile desktop add dsh-ops@0.5.4
 ```
 
 卸载：
